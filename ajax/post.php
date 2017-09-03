@@ -1,0 +1,3 @@
+<?php
+
+// handle POST-query
