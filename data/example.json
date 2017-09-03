@@ -1,0 +1,17 @@
+{
+  "key1":"value1",
+  "key2":[
+    "value21",
+    "value22",
+    "value23"
+  ],
+  "key3":{
+    "keyv31":"kvalue31",
+    "keyv32":"kvalue32",
+    "keyv33":"kvalue33"
+  },
+  "key4":[
+    {"qwe":"123","asd":"456","zxc":"789"},
+    {"pop":"987","lol":"654","mom":"321"}
+  ]
+}
