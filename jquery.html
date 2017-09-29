@@ -5,11 +5,103 @@
     <title>jQuery</title>
 </head>
 <body>
-    <h1>jQuery</h1>
-    <p>jQuery</p>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script-->
-    <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script-->  
-    <script src="/js/jquery.js"></script>    
+<p><strong>jQuery</strong><span style="color:rgb(34, 34, 34); font-family:sans-serif; font-size:14px">&nbsp;&mdash;&nbsp;</span>библиотека JavaScript<span style="color:rgb(34, 34, 34); font-family:sans-serif; font-size:14px">, фокусирующаяся на взаимодействии&nbsp;</span><a href="https://ru.wikipedia.org/wiki/JavaScript" style="text-decoration-line: none; color: rgb(11, 0, 128); background-image: none; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: sans-serif; font-size: 14px;" title="JavaScript">J</a>avaScript<span style="color:rgb(34, 34, 34); font-family:sans-serif; font-size:14px">&nbsp;и&nbsp;</span>HTML<span style="color:rgb(34, 34, 34); font-family:sans-serif; font-size:14px">. Библиотека jQuery помогает легко получать доступ к любому элементу&nbsp;</span>DOM<span style="color:rgb(34, 34, 34); font-family:sans-serif; font-size:14px">, обращаться к атрибутам и содержимому элементов&nbsp;</span>DOM<span style="color:rgb(34, 34, 34); font-family:sans-serif; font-size:14px">, манипулировать ими. Также библиотека jQuery предоставляет удобный&nbsp;</span>API<span style="color:rgb(34, 34, 34); font-family:sans-serif; font-size:14px">&nbsp;для работы с&nbsp;</span>AJAX<span style="color:rgb(34, 34, 34); font-family:sans-serif; font-size:14px">.</span></p>
+
+<h2>Возможности</h2>
+
+<ul>
+    <li>Движок кросс-браузерных CSS-селекторов&nbsp;<a class="new" href="https://ru.wikipedia.org/w/index.php?title=Sizzle&amp;action=edit&amp;redlink=1" style="text-decoration-line: none; color: rgb(165, 88, 88); background: none;" title="Sizzle (страница отсутствует)">Sizzle</a>, выделившийся в отдельный проект;</li>
+    <li>Переход по дереву DOM, включая поддержку&nbsp;XPath&nbsp;как плагина;</li>
+    <li>События;</li>
+    <li>Визуальные эффекты;</li>
+    <li>AJAX-дополнения;</li>
+    <li>JavaScript-плагины.</li>
+</ul>
+
+<h2>Использование</h2>
+
+<p>jQuery, как правило, включается в веб-страницу как один внешний JavaScript-файл:</p>
+
+<div class="mw-highlight mw-content-ltr" dir="ltr" style="background: rgb(248, 248, 248); direction: ltr; unicode-bidi: embed; color: rgb(34, 34, 34); font-family: sans-serif; font-size: 14px;">
+<pre>
+   &lt;<strong>head</strong>&gt;
+      &lt;<strong>script</strong> <span style="color:rgb(125, 144, 41)">src</span><span style="color:rgb(102, 102, 102)">=</span><span style="color:rgb(186, 33, 33)">&quot;jquery-2.2.2.min.js&quot;</span>&gt;
+      &lt;/<strong>script</strong>&gt;
+   &lt;/<strong>head</strong>&gt;
+</pre>
+</div>
+
+<p>Вся работа с jQuery ведётся с помощью функции&nbsp;<code>$</code>. Если на сайте применяются другие JavaScript библиотеки, где&nbsp;<code>$</code>&nbsp;может использоваться для своих нужд, то можно использовать её синоним&nbsp;&mdash;&nbsp;<code>jQuery</code>. Второй способ считается более правильным, а чтобы код не получался слишком громоздким, можно писать его следующим образом:</p>
+
+<div class="mw-highlight mw-content-ltr" dir="ltr" style="background: rgb(248, 248, 248); direction: ltr; unicode-bidi: embed; color: rgb(34, 34, 34); font-family: sans-serif; font-size: 14px;">
+<pre>
+jQuery(<strong>function</strong>($) {
+  <em>// здесь код скрипта, где в $ будет находиться объект, предоставляющий доступ к функциям jQuery</em>
+})
+</pre>
+</div>
+
+<p>Работу с jQuery можно разделить на 2 типа:</p>
+
+<ul>
+    <li>Получение jQuery-объекта с помощью функции&nbsp;<code>$()</code>. Например, передав в неё CSS-селектор, можно получить jQuery-объект всех элементов HTML, попадающих под критерий и далее работать с ними с помощью различных методов jQuery-объекта. В случае, если метод не должен возвращать какого-либо значения, он возвращает ссылку на jQuery объект, что позволяет вести цепочку вызовов методов согласно концепции&nbsp;текучего интерфейса.</li>
+    <li>Вызов глобальных методов у объекта&nbsp;<code>$</code>, например, удобных итераторов по массиву.</li>
+</ul>
+
+<p>Типичный пример манипуляции сразу несколькими узлами DOM заключается в вызове&nbsp;<code>$</code>&nbsp;функции со строкой селектора&nbsp;CSS, что возвращает объект&nbsp;<tt>jQuery</tt>, содержащий некоторое количество элементов HTML-страницы. Эти элементы затем обрабатываются методами jQuery. Например,</p>
+
+<div class="mw-highlight mw-content-ltr" dir="ltr" style="background: rgb(248, 248, 248); direction: ltr; unicode-bidi: embed; color: rgb(34, 34, 34); font-family: sans-serif; font-size: 14px;">
+<pre>
+$(<span style="color:rgb(186, 33, 33)">&quot;div.test&quot;</span>).add(<span style="color:rgb(186, 33, 33)">&quot;p.quote&quot;</span>).addClass(<span style="color:rgb(186, 33, 33)">&quot;blue&quot;</span>).slideDown(<span style="color:rgb(186, 33, 33)">&quot;slow&quot;</span>);
+</pre>
+</div>
+
+<p>находит все элементы&nbsp;<tt>div</tt>&nbsp;с классом&nbsp;<tt>test</tt>, а также все элементы&nbsp;<tt>p</tt>&nbsp;с классом&nbsp;<tt>quote</tt>, и затем добавляет им всем класс&nbsp;<tt>blue</tt>&nbsp;и визуально плавно спускает вниз. Здесь методы&nbsp;<tt>add</tt>,&nbsp;<tt>addClass</tt>&nbsp;и&nbsp;<tt>slideDown</tt>&nbsp;возвращают ссылку на исходный объект&nbsp;<tt>$(&quot;div.test&quot;)</tt>, поэтому возможно вести такую цепочку.</p>
+
+<p>Методы, начинающиеся с&nbsp;<code>$.</code>, удобно применять для обработки глобальных объектов. Например:</p>
+
+<div class="mw-highlight mw-content-ltr" dir="ltr" style="background: rgb(248, 248, 248); direction: ltr; unicode-bidi: embed; color: rgb(34, 34, 34); font-family: sans-serif; font-size: 14px;">
+<pre>
+$.each([<span style="color:rgb(102, 102, 102)">1</span>,<span style="color:rgb(102, 102, 102)">2</span>,<span style="color:rgb(102, 102, 102)">3</span>], <strong>function</strong>() {
+  <span style="color:rgb(0, 128, 0)">document</span>.write(<strong>this</strong> <span style="color:rgb(102, 102, 102)">+</span> <span style="color:rgb(102, 102, 102)">1</span>);
+});
+</pre>
+</div>
+
+<p>добавит на страницу&nbsp;<code>234</code>.</p>
+
+<p><code>$.ajax</code>&nbsp;и соответствующие функции позволяют использовать методы&nbsp;AJAX. Например:</p>
+
+<div class="mw-highlight mw-content-ltr" dir="ltr" style="background: rgb(248, 248, 248); direction: ltr; unicode-bidi: embed; color: rgb(34, 34, 34); font-family: sans-serif; font-size: 14px;">
+<pre>
+$.ajax({
+  type<span style="color:rgb(102, 102, 102)">:</span> <span style="color:rgb(186, 33, 33)">&quot;POST&quot;</span>,
+  url<span style="color:rgb(102, 102, 102)">:</span> <span style="color:rgb(186, 33, 33)">&quot;some.php&quot;</span>,
+  data<span style="color:rgb(102, 102, 102)">:</span> {name<span style="color:rgb(102, 102, 102)">:</span> <span style="color:rgb(186, 33, 33)">&#39;John&#39;</span>, location<span style="color:rgb(102, 102, 102)">:</span> <span style="color:rgb(186, 33, 33)">&#39;Boston&#39;</span>},
+  success<span style="color:rgb(102, 102, 102)">:</span> <strong>function</strong>(msg){
+    alert( <span style="color:rgb(186, 33, 33)">&quot;Data Saved: &quot;</span> <span style="color:rgb(102, 102, 102)">+</span> msg );
+  }
+});
+</pre>
+</div>
+
+<p>В этом примере идет обращение к скрипту&nbsp;<code>some.php</code>&nbsp;с параметрами&nbsp;<code>name=John&amp;location=Boston</code>, и полученный результат выдается в сообщении посредством&nbsp;<code>alert()</code>.</p>
+
+<p>Пример добавления к элементу обработчика события click с помощью jQuery:</p>
+
+<div class="mw-highlight mw-content-ltr" dir="ltr" style="background: rgb(248, 248, 248); direction: ltr; unicode-bidi: embed; color: rgb(34, 34, 34); font-family: sans-serif; font-size: 14px;">
+<pre>
+  $(<span style="color:rgb(186, 33, 33)">&quot;a&quot;</span>).click(<strong>function</strong>() {
+    alert(<span style="color:rgb(186, 33, 33)">&quot;Hello world!&quot;</span>);
+  });
+</pre>
+</div>
+
+<p>В данном случае при нажатии на элемент &lt;a&gt; происходит вызов&nbsp;<code>alert(&quot;Hello world!&quot;)</code>.</p>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script-->
+<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script-->
+<script src="/js/jquery.js"></script>
 </body>
 </html>
